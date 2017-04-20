@@ -9,13 +9,19 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Image
 } from 'react-native';
 
 export default class BearReact extends Component {
   render() {
+    let pic = {
+      uri:'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+    };
     return (
+
       <View style={styles.container}>
+        <Image source={pic} style={{width: 193, height: 110}}/>
         <Text style={styles.welcome}>
           Bear Pocket 
         </Text>
@@ -23,13 +29,13 @@ export default class BearReact extends Component {
           React-native app for bear-pocket
         </Text>
         <Text style={styles.instructions}>
-          A project to learn react-native{'\n'}
-          
+          A project to learn react-native{'\n'} 
         </Text>
       </View>
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -51,3 +57,4 @@ const styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('BearReact', () => BearReact);
+//AppRegistry.registerComponent('BearPic', () => BearPic);
