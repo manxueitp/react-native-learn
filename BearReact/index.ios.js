@@ -10,19 +10,37 @@ import {
   StyleSheet,
   Text,
   View,
-  Image
+  Image,
+  LayoutAnimation,
 } from 'react-native';
 
-export default class BearReact extends Component {
+class Blink extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {showText: true};
+
+    setInterval(()=>{
+      this.setState({ showText: !this.state.showText });
+    }, 1000);
+  }
+  render() {
+    let display = this.state.showText ? this.props.text : '';
+    return (
+      <View>
+        <Text>{display}</Text>
+      </View>
+    );
+  }
+}
+class BearReact extends Component {
   render() {
     let pic = {
       uri:'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
     };
     return (
-
       <View style={styles.container}>
         <Image source={pic} style={{width: 193, height: 110}}/>
-        <Text style={styles.welcome}>
+        <Text style={styles.bluetext}>
           Bear Pocket 
         </Text>
         <Text style={styles.instructions}>
@@ -31,6 +49,7 @@ export default class BearReact extends Component {
         <Text style={styles.instructions}>
           A project to learn react-native{'\n'} 
         </Text>
+        <Blink text='I love to blink'/>
       </View>
     );
   }
@@ -54,6 +73,11 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  bluetext: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30,
+  }
 });
 
 AppRegistry.registerComponent('BearReact', () => BearReact);
