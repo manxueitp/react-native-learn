@@ -1,3 +1,4 @@
-  {
-  "extents":"rallycoding"
+{
+  "extents":"rallycoding",
+  "parser": "babel-eslint"
 }
